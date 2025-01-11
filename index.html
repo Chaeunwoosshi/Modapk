@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App List - ABEFILM</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    #password-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    #password-box {
+      background: #1a1c2b;
+      padding: 10px 50px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    #password-box input {
+      padding: 10px;
+      width: 200px;
+      border-radius: 4px;
+      border: none;
+       margin-bottom: 20px;
+      font-size: 1em;
+    }
+    #password-box button {
+      padding: 8px 20px;
+      margin-bottom: 10px;
+      background: #1fd058;
+      border: none;
+      color: #ffffff;
+      font-size: 1em;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    #password-box button:hover {
+      background: #0288d1;
+    }
+    .app-list {
+      max-width: 800px;
+      margin: 0px auto;
+      padding: 20px;
+      display: none;
+    }
+    /* Rest of your existing styles */
+    .app-item {
+      display: flex;
+      align-items: center;
+      background: #1e1e1e;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .app-item img {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      margin-right: 15px;
+    }
+    .app-info {
+      line-height: 25px;
+      font-size: 13px;
+      flex: 1;
+    }
+    .app-title {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    .app-meta {
+      font-size: 0.9em;
+      color: #bbbbbb;
+      margin: 5px 0;
+    }
+    .download-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .button {
+      text-decoration: none;
+      font-size: 0.8em;
+      font-weight: bold;
+      color: #ffffff;
+      background: linear-gradient(45deg, #03a9f4, #0288d1);
+      padding: 2px 10px;
+      border-radius: 25px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .button:hover {
+      background: linear-gradient(45deg, #0288d1, #03a9f4);
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+    .button:active {
+      transform: scale(0.98);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div id="password-overlay">
+    <div id="password-box">
+      <h2>Enter Password</h2>
+      <input type="password" id="password-input" placeholder="Password">
+      <br>
+      <button onclick="checkPassword()">Submit</button>
+    </div>
+  </div>
+  
+  <div class="app-list">
+    <!-- App 1 -->
+    <div class="app-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR72aM3cj3hs5TtdJlYPvZJAcKzDQr6h0OWEUBhIKEj3A&s" alt="Dramabox Icon">
+      <div class="app-info">
+        <div class="app-title">DramaBox</div>
+        <div class="app-meta">Category: Short Drama | Unlocked<br> Rating: ⭐⭐⭐⭐☆ (4.8)</div>
+        <div class="app-meta">Size: 50 MB | Version: 2.23.1</div>
+        <div class="download-buttons">
+          <a href="https://www.mediafire.com/file/4rs9hosxgigybsa/DramaBox_2.7.apk/file" class="button">Download APK</a>
+          <a href="https://play.google.com/store/apps/details?id=com.storymatrix.drama" class="button">Google Play</a>
+        </div>
+      </div>
+    </div>
+    <!-- App 2 -->
+    <div class="app-item">
+      <img src="https://cdn6.aptoide.com/imgs/0/1/6/016fddcac264e0ecd73008d04069b161_icon.png" alt="Reelshort Icon">
+      <div class="app-info">
+        <div class="app-title">ReelShort</div>
+        <div class="app-meta">Category: Short Drama | Unlocked<br> Rating: ⭐⭐⭐⭐☆ (4.6)</div>
+        <div class="app-meta">Size: 35 MB | Version: 8.8.44</div>
+        <div class="download-buttons">
+          <a href="https://www.mediafire.com/file/b7auqiidamsaddn/ReelShort_2.2.0.apk/file" class="button">Download APK</a>
+          <a href="https://play.google.com/store/apps/details?id=com.newleaf.app.android.victor" class="button">Google Play</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- App 3 -->
+    <div class="app-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAmHgvhAmN8r-HHDDFJyRpJwaIsr3hX6NGQZYKirzqoA&s" alt="NetShort Icon">
+      <div class="app-info">
+        <div class="app-title">NetShort</div>
+        <div class="app-meta">Category: Short Drama | Unlocked<br> Rating: ⭐⭐⭐⭐☆ (4.8)</div>
+        <div class="app-meta">Size: 35 MB | Version: 8.8.44</div>
+        <div class="download-buttons">
+          <a href="https://www.mediafire.com/file/58yyre0vc0z3ma7/NetShort_1.4.3.apk/file" class="button">Download APK</a>
+          <a href="https://play.google.com/store/apps/details?id=com.netshort.abroad" class="button">Google Play</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- App 4 -->
+    <div class="app-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeu12iTEZMPSlRb48cUoxvgG6ONpJ2QGlwoR3a0Oz51-c8o_70zq1vLOE&s=10" alt="DramaPops Icon">
+      <div class="app-info">
+        <div class="app-title">DramaPops</div>
+        <div class="app-meta">Category: Short Drama | Unlocked<br> Rating: ⭐⭐⭐⭐☆ (4.7)</div>
+        <div class="app-meta">Size: 35 MB | Version: 8.8.44</div>
+        <div class="download-buttons">
+          <a href="https://www.mediafire.com/file/mrli5zu3q2jpw3d/DramaPops_1.5.2.apk/file" class="button">Download APK</a>
+          <a href="https://play.google.com/store/apps/details?id=com.deepvision.shortdrama" class="button">Google Play</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- App 5 -->
+    <div class="app-item">
+      <img src="https://play-lh.googleusercontent.com/qHfOJpSEYwjqzgqhp1WvBVUoWnUd9Z0MY6QoT6EJsueNVAfZ3djKHrhutxqJzJfE7cI=w240-h480-rw" alt="Dramaz Icon">
+      <div class="app-info">
+        <div class="app-title">Dramaz</div>
+        <div class="app-meta">Category: Short Drama | Unlocked<br> Rating: ⭐⭐⭐⭐☆ (4.2)</div>
+        <div class="app-meta">Size: 35 MB | Version: 8.8.44</div>
+        <div class="download-buttons">
+          <a href="https://www.mediafire.com/file/3vtlv5l4w3io2c4/Dramaz_1.0.13.apk/file" class="button">Download APK</a>
+          <a href="https://play.google.com/store/apps/details?id=com.reel.tv.dramaz" class="button">Google Play</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- App 5 -->
+    <div class="app-item">
+      <img src="https://play-lh.googleusercontent.com/C28jdPuVPwck8h2XDFOXqMzC2Yjb5ERb2GU8lRmZLw9NQKNI0-Upd3WUuizABBRcpA" alt="FlashDrama Icon">
+      <div class="app-info">
+        <div class="app-title">FlashDrama</div>
+        <div class="app-meta">Category: Short Drama | Unlocked<br> Rating: ⭐⭐⭐⭐☆ (4.3)</div>
+        <div class="app-meta">Size: 35 MB | Version: 8.8.44</div>
+        <div class="download-buttons">
+          <a href="https://www.mediafire.com/file/4bal8k42qmnofvt/FlashDrama_2.4.apk/file" class="button">Download APK</a>
+          <a href="https://play.google.com/store/apps/details?id=com.bid.future.drama" class="button">Google Play</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const correctPassword = "makeitreal1";
+    function checkPassword() {
+      const inputPassword = document.getElementById("password-input").value;
+      if (inputPassword === correctPassword) {
+        document.getElementById("password-overlay").style.display = "none";
+        document.querySelector(".app-list").style.display = "block";
+      } else {
+        alert("Incorrect password. Please try again.");
+      }
+    }
+  </script>
+</body>
+</html>
